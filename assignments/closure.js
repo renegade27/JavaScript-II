@@ -2,8 +2,14 @@
 // Write a simple closure of your own creation.  Keep it simple!
 const closure = () => {
   var a = 4;
+  console.log(a);
+  aplus = () => {
+    return a += 1;
+  }
+  console.log(aplus());
 }
 
+closure();
 // console.log(a);
 // The above statement would return "a is not defined", because you're console.log'ing it outside of its scope.
 // The variable a is definied inside of the function scope, because of that it is a variable that is local to its function.
