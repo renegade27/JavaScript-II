@@ -88,7 +88,28 @@ console.log(ticketPriceTotal);
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
-
+// There will be an award ceremony after the marathon is done, we need to find which company/person donated the most.
+let mostDonated ='';
+let topDonor = [runners[0]];
+runners.forEach((runner) => {
+    if (topDonor.length === 0) { topDonor.push(runner); }
+    if (runner.donation > topDonor[0].donation) { topDonor.pop() && topDonor.push(runner); }
+});
+console.log(`${topDonor[0].first_name} from ${topDonor[0].company_name} donated ${topDonor[0].donation}\$!`);
 // Problem 2
-
+// The coordinator of the marathon needs an email list so she can forward an update to all runners.
+let emailList = [];
+emailList = runners.map(runner => runner.email);
+console.log(emailList);
 // Problem 3
+// The t-shirt manufacturer wants to be able to search up the ID and last name of any competitor so that they
+// can easily stencil the ID/Name onto a shirt
+idname = [];
+runners.forEach((runner) => {
+    idname.push(`${runner.id} - ${runner.last_name}`);
+});
+function getIdName(id) {
+    return idname[id-1];
+}
+console.log(getIdName(1));
+console.log(getIdName(50));

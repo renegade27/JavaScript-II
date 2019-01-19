@@ -66,14 +66,24 @@ function contains(item, list, cb) {
   }
 }
 
-contains('Gum', items, function(bool, item) {
+contains('Gum', items, (bool, item) => {
   bool == true ? console.log(`${item} has been found`) : console.log(`${item} cannot be found`);
 });
 
 /* STRETCH PROBLEM */
 
+const items2 = ['Pencil', 'Notebook', 'yo-yo', 'Gum', 'Gum', 'Pencil', 'Pencil', 'Gum', 'Notebook'];
+
 function removeDuplicates(array, cb) {
-  // removeDuplicates removes all duplicate values from the given array.
-  // Pass the duplicate free array to the callback function.
-  // Do not mutate the original array.
+  newArray = [];
+  array.forEach((item) => {
+    isDuplicate = false;
+    newArray.includes(item) ? isDuplicate = true : newArray.push(item)
+  });
+  return cb(newArray);
 }
+
+removeDuplicates(items2, () => {
+  console.log(newArray);
+});
+
